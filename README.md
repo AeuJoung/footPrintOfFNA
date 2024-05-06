@@ -1,3 +1,23 @@
+국회 정보를 표시하는 프로젝트입니다.
+
+*[국회 오픈API](https://open.assembly.go.kr/portal/openapi/main.do) 사용 
+
+
+###구현 목표
+- 국회의원 검색
+- 국회의원 비교 (2인)
+- 국회의원 이력 출력
+
+
+###<구현 기간>
+- 5월 한달
+
+
+*아래 NEXT README
+
+-----
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
