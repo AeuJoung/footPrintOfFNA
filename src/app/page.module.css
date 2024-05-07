@@ -20,6 +20,15 @@
     text-align: center;
 }
 
+.logoSVG {
+    max-width: 220px;
+    max-height: 220px;
+    min-width: 130px;
+    min-height: 130px;
+    width:15vw;
+    height:15vw;    
+}
+
 .logoText {
     margin-top: 10px;
     text-align: center;
@@ -29,45 +38,41 @@
     font-weight :bold;
 }
 
-@media screen and (max-width:900px) {
-    .logoText span:nth-child(1) {
-        font-size: 8vw;
-    }
-    .logoText span:nth-child(2) {
-        font-size: 7vw;
-    }
-    .logoText span:nth-child(3) {
-        font-size: 5vw;
-    }
-    .logoText span:nth-child(4) {
-        font-size: 5vw;
-    }
-    .logoText span:nth-child(5) {
-        font-size: 7vw;
-    }
-    .logoText span:nth-child(6) {
-        font-size: 8vw;
-    }
+/*
+Device = 랩탑, 데스크탑
+Screen = 1025px에서 1280px 사이
+
+Device = 태블릿, 아이패드(가로)
+Screen = 768px에서 1024px 사이
+
+Device = 대부분의 스마트폰 모바일 기기(세로)
+Screen = 320px에서 479px 사이
+*/
+
+@media screen and (max-width:768px) {
+    .logoText span:nth-child(1) { font-size: 8vw; }
+    .logoText span:nth-child(2) { font-size: 7vw; }
+    .logoText span:nth-child(3) { font-size: 5vw; }
+    .logoText span:nth-child(4) { font-size: 5vw; }
+    .logoText span:nth-child(5) { font-size: 7vw; }
+    .logoText span:nth-child(6) { font-size: 8vw; }
 }
 
 
-@media screen and (min-width : 900px) {
-    .logoText span:nth-child(1) {
-        font-size: 4.5vw;
-    }
-    .logoText span:nth-child(2) {
-        font-size: 3.5vw;
-    }
-    .logoText span:nth-child(3) {
-        font-size: 2.5vw;
-    }
-    .logoText span:nth-child(4) {
-        font-size: 2.5vw;
-    }
-    .logoText span:nth-child(5) {
-        font-size: 3.5vw;
-    }
-    .logoText span:nth-child(6) {
-        font-size: 4.5vw;
-    }
+@media screen and (min-width : 768px) and (max-width:1024px) {
+    .logoText span:nth-child(1) { font-size: 8vw; }
+    .logoText span:nth-child(2) { font-size: 7vw; }
+    .logoText span:nth-child(3) { font-size: 5vw; }
+    .logoText span:nth-child(4) { font-size: 5vw; }
+    .logoText span:nth-child(5) { font-size: 7vw; }
+    .logoText span:nth-child(6) { font-size: 8vw; }
+}
+
+@media screen and (min-width : 1024px) {
+    .logoText span:nth-child(1) { font-size: 4.5vw; }
+    .logoText span:nth-child(2) { font-size: 3.5vw; }
+    .logoText span:nth-child(3) { font-size: 2.5vw; }
+    .logoText span:nth-child(4) { font-size: 2.5vw; }
+    .logoText span:nth-child(5) { font-size: 3.5vw; }
+    .logoText span:nth-child(6) { font-size: 4.5vw; }
 }
