@@ -50,3 +50,132 @@
     height:30px;
     cursor: pointer;
 }
+
+/*필터 여닫는 버튼*/
+.filterOpenBTWrapper {
+    margin-top:20px;
+    position : relative;
+    justify-content: center;
+}
+.filterOpenBT {
+    width:110px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+
+    background-color: transparent;
+    border:none;
+    cursor: pointer;
+}
+.filterOpenBTImg {
+    position: relative;
+    top:-2px;
+    width:15px;
+    margin-right : 3px;
+}
+
+.filterOpenBTImg.opened {
+    transform: rotate(180deg);
+}
+
+
+/*필터 선택박스*/
+
+.filterSelectBox {
+    display: inline-flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 700px;
+    min-width: 280px;
+    min-height: 200px;
+    width:100%;
+    
+    margin-top: 10px;
+    padding : 20px 20px;
+    box-sizing: border-box;
+
+    background-color: aliceblue;
+    /*background: linear-gradient(0deg, #0C2B80, #5B9BC7 67%, #4CB699); */
+    border-radius: 20px;
+    z-index: 1;
+
+    top:-5px;
+    transition: .5s;
+    visibility: hidden;
+    opacity: 0%;
+}
+
+.filterSelectBox.opened {
+    top:0px;
+    visibility: visible;
+    opacity: 100%;
+}
+
+.filterSelectBox::before {
+    z-index: -1;
+    position: absolute;
+    top:5px;
+    left:5px;
+    width:calc(100% - 10px);
+    height:calc(100% - 10px);
+    content: "";
+    background: white;
+    border-radius: 15px;
+}
+
+.filterListWrapper {
+    display: flex;
+}
+
+.filterListName {
+    min-width: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.filterListUl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.filterListSelect {
+    width:100%;
+    height: 30px;
+    max-width:300px;
+    border-radius: 10px;
+    border:none;
+    background-color: #EAF4F2;
+
+    margin-left: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+}
+.filterListSelect:focus {
+    outline: none;
+}
+
+.filterList {
+    list-style: none;
+    height: 30px;
+
+    padding: 5px 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #EAF4F2;
+
+    cursor: pointer;
+}
+.filterList.clicked {
+    background-color:#4CB699 ;
+}
+
+.filterOption {
+    text-align: center;
+}
+
