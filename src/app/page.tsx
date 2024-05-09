@@ -1,6 +1,7 @@
 import Logo from "/public/asset/logo.svg";
 import styles from "./page.module.css";
 import SearchBox from "./_component/SearchBox";
+import SearchResult from "./SearchResult";
 
 export default function Home() {
   return ( 
@@ -18,6 +19,7 @@ export default function Home() {
           </div>
         </section>
         <SearchBox />
+        <SearchResult />
       </section>
     </section>
   );

@@ -1,7 +1,17 @@
+.searchSectionWrapper {
+    width:100%;
+    text-align: center;
+}
 .searchSection {
     width:85%;
+    display: inline-block;
     text-align: center;
     margin: 0 10px;
+}
+
+.searchSection.moved {
+    position: fixed;
+    top:0px;
 }
 
 .searchBoxWrapper {
@@ -178,4 +188,5 @@
 .filterOption {
     text-align: center;
 }
+
 
