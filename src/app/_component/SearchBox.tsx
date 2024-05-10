@@ -28,8 +28,15 @@ export default function SearchBox() {
 
 
     useEffect(()=>{
+        let relativePos = Number(searchBoxComp.current?.getBoundingClientRect().top);
+        let scrollPos = window.scrollY;
+        let absolutePos = relativePos+scrollPos;
         const handler = () =>{
-
+            if (searchBoxComp.current?.classList.contains(styles.moved)) {
+                if (scrollY<=absolutePos) searchBoxComp.current?.classList.remove(styles.moved);
+            } else {
+                if (scrollY>absolutePos) searchBoxComp.current?.classList.add(styles.moved);
+            }
         }
         window.addEventListener('scroll', handler);
         return ()=>{
@@ -112,8 +119,8 @@ export default function SearchBox() {
     }
     
     return (
-        <section className={styles.searchSectionWrapper}>
-            <section className={styles.searchSection} ref={searchBoxComp}>
+        <section className={styles.searchSectionWrapper} ref={searchBoxComp}>
+            <section className={styles.searchSection} >
                 <div className={styles.searchBoxWrapper}>
                     <input className={styles.searchBox} type="search" placeholder="의원 검색"></input>
                     <div className={styles.searchButtonWrapper}>
@@ -122,7 +129,7 @@ export default function SearchBox() {
                     </div>
                     <div className={styles.filterOpenBTWrapper}>
                         <button className={styles.filterOpenBT} onClick={openFilterEvent}>
-                            <ArrowSVG className={clsx(styles.filterOpenBTImg, isFilterOpened&&styles.opened)} />검색 필터
+                            <ArrowSVG className={clsx(styles.filterOpenBTImg, isFilterOpened&&styles.opened)} /><span className={styles.filterOpenBTText}>검색 필터</span>
                         </button>
                     </div>
                 </div>
