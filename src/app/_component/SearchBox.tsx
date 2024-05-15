@@ -2,9 +2,10 @@
 
 import clsx from "clsx";
 import styles from "./searchBox.module.css";
-import { ChangeEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import { ChangeEvent, MouseEvent, RefObject, useEffect, useRef, useState } from "react";
 import SearchBT from "/public/asset/SearchBT.svg"
 import ArrowSVG from "/public/asset/updownArrow.svg";
+import useFixed from "@/app/_userhook/useFixed"
 
 
 interface filterType {
@@ -21,28 +22,13 @@ const filterDefault = {
     filterList_term : 'ALL'
 }
 
+
+
 export default function SearchBox() {
     const [isFilterOpened, setIsFilterOpend] = useState<boolean>(false);
     const [filterResult, setfilterResult] = useState<filterType>(filterDefault); //서버에 넘겨줄 값
     const searchBoxComp = useRef<HTMLElement>(null);
-
-
-    useEffect(()=>{
-        let relativePos = Number(searchBoxComp.current?.getBoundingClientRect().top);
-        let scrollPos = window.scrollY;
-        let absolutePos = relativePos+scrollPos;
-        const handler = () =>{
-            if (searchBoxComp.current?.classList.contains(styles.moved)) {
-                if (scrollY<=absolutePos) searchBoxComp.current?.classList.remove(styles.moved);
-            } else {
-                if (scrollY>absolutePos) searchBoxComp.current?.classList.add(styles.moved);
-            }
-        }
-        window.addEventListener('scroll', handler);
-        return ()=>{
-            window.removeEventListener('scroll', handler);
-        }
-    })
+    const menueFixed = useFixed({searchBoxComp, tag : styles.moved});
 
     const filterData = {
         filterList_session : {
