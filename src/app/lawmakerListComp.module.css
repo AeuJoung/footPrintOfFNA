@@ -1,0 +1,86 @@
+.lawmakerList_Session {
+    
+}
+
+.sessionTitle {
+    position: relative;
+    font-size: 25px;
+    font-weight: 600;
+    padding-left:20px;
+    margin-bottom: 20px;
+}
+.sessionTitle::before {
+    content: "";
+    position: absolute;
+    width:5px;
+    height:30px;
+    background-color: black;
+    border-radius: 10px;
+    left:0px;
+}
+
+.sessionInfo {
+    font-size: 20px;
+    color : #878787;
+    margin-left:10px;
+}
+
+.lawmakerListWrapper {
+}
+
+.lawmakerList {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    margin:20px;
+    cursor: pointer;
+    user-drag:auto;
+}
+
+.lawmakerList .list_img {
+    position: relative;
+    width:170px;
+    height:210px;
+    overflow: hidden;
+    border-radius: 20px;
+
+    box-shadow : 1px 4px 11px rgba(0, 0, 0, .3);
+}
+.lawmakerList:hover .list_img {
+    transform: scale(1.05);
+    transition: .1s;
+}
+
+@media screen and (max-width:440px) {
+    .lawmakerList .list_img {
+        width:calc(170px * 0.8);
+        height:calc(210px * 0.8);
+    }
+}
+
+.lawmakerList .list_img img {
+    height:100%;
+    position: relative;
+    left:50%;
+    transform: translate(-50%, 0);
+    filter: grayscale();
+}
+.lawmakerList:hover .list_img img {
+    filter: none;
+}
+
+.lawmakerList .list_infoWrapper {
+    margin-top:10px;
+    display: flex;
+    width:90%;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    justify-content: space-around;
+}
+.lawmakerList .list_infoWrapper .list_partySimbol {
+    width:10px; height:10px; border-radius: 100%;
+    background-color: red;
+}
