@@ -17,7 +17,7 @@ export default function LawmakerListComp({lawmakerList} : Props) {
     const listDragStartEvent = (e : DragEvent<HTMLDivElement>, code : string) => {
         console.log("드래그 시작");
 
-        e.dataTransfer.setData("code", code);
+        e.dataTransfer.setData("code", code);    
     }
 
     const returnLawmakerList = (lawmakerInfo : Lawmaker) => {
