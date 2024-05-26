@@ -1,5 +1,12 @@
+
+/* 국회의원 카드 */
+.LawmakerListSection {
+    position: relative;
+}
+
+
 .lawmakerList_Session {
-    
+    margin-bottom: 50px;
 }
 
 .sessionTitle {
@@ -29,12 +36,20 @@
 }
 
 .lawmakerList {
+    position: relative;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     margin:20px;
     cursor: pointer;
     user-drag:auto;
+}
+
+.lawmakerList.useChecked::before {
+    content: "";
+    width:20px;
+    height: 20px;
+    background-color: aqua;
 }
 
 .lawmakerList .list_img {
