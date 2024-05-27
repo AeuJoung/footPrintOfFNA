@@ -4,6 +4,7 @@ import { MouseEvent, DragEvent, useRef, useState, useEffect } from "react";
 import { Lawmaker, NumOfGenderBySess } from "@/app/objecttype";
 import styles from "./lawmakerListComp.module.css"
 import clsx from "clsx";
+import CheckIcon from "/public/asset/check.svg";
 
 
 interface Props {
@@ -12,14 +13,11 @@ interface Props {
 }
 
 export default function LawmakerListComp({lawmakerList, genderList} : Props) {
-    console.log(lawmakerList);
-
     const listClickEvent = (e : MouseEvent<HTMLElement>) => {
         console.log("Dddddd");
     }
 
     const listDragStartEvent = (e : DragEvent<HTMLDivElement>, lawmaker : Lawmaker) => {
-        e.dataTransfer.setData("imgSrc", lawmaker.img);
         e.dataTransfer.setData("code", lawmaker.code);    
         e.dataTransfer.setData("sess", lawmaker.curSession.toString());
     }
@@ -27,6 +25,7 @@ export default function LawmakerListComp({lawmakerList, genderList} : Props) {
     const returnLawmakerList = (lawmakerInfo : Lawmaker) => {
         return (
             <div key={lawmakerInfo.code} className={clsx(styles.lawmakerList, lawmakerInfo.userCheck && styles.useChecked)} onClick={listClickEvent} draggable onDragStart={(e)=>listDragStartEvent(e, lawmakerInfo)}>
+                <CheckIcon className={styles.checkIcon}></CheckIcon>
                 <div className={styles.list_img}>
                     <img src={lawmakerInfo.img} alt="" />
                 </div>

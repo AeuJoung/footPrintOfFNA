@@ -45,11 +45,15 @@
     user-drag:auto;
 }
 
-.lawmakerList.useChecked::before {
-    content: "";
+.lawmakerList .checkIcon { display: none; }
+
+.lawmakerList.useChecked .checkIcon {
+    display: block;
+    position: absolute;
+    top:7px; left:7px;
     width:20px;
     height: 20px;
-    background-color: aqua;
+    z-index:2;
 }
 
 .lawmakerList .list_img {
