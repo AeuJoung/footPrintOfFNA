@@ -191,6 +191,10 @@
 
 /*moved 태그*/
 
+.searchSectionWrapper.moved {
+    width:0px;
+}
+
 .searchSectionWrapper.moved .searchSection{
     position: fixed;
     width: 100%;

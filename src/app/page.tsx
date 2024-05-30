@@ -18,7 +18,7 @@ export default function Home() {
             <span>국</span>
           </div>
         </section>
-        <SearchBox />
+        <SearchBox alwaysMenuFixed={true}/>
         <SearchResult />
       </section>
     </section>

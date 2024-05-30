@@ -23,12 +23,14 @@ const filterDefault = {
 }
 
 
-
-export default function SearchBox() {
+//alwaysMenuFixed : false이면 menueFixed 작동 안한다. move 태그를 컴포넌트에 고정적으로 주고 싶을때 사용. (ex. detail 페이지)
+export default function SearchBox({alwaysMenuFixed} : {alwaysMenuFixed : boolean}) { 
     const [isFilterOpened, setIsFilterOpend] = useState<boolean>(false);
     const [filterResult, setfilterResult] = useState<filterType>(filterDefault); //서버에 넘겨줄 값
     const searchBoxComp = useRef<HTMLElement>(null);
-    const menueFixed = useFixed({searchBoxComp, tag : styles.moved});
+    const menueFixed = useFixed({searchBoxComp, type : alwaysMenuFixed , tag : styles.moved});
+
+    console.log(alwaysMenuFixed);
 
     const filterData = {
         filterList_session : {
@@ -105,7 +107,7 @@ export default function SearchBox() {
     }
     
     return (
-        <section className={styles.searchSectionWrapper} ref={searchBoxComp}>
+        <section className={clsx(styles.searchSectionWrapper, alwaysMenuFixed || styles.moved)} ref={searchBoxComp}>
             <section className={styles.searchSection} >
                 <div className={styles.searchBoxWrapper}>
                     <input className={styles.searchBox} type="search" placeholder="의원 검색"></input>

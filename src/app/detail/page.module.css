@@ -1,0 +1,129 @@
+.lawmakerDetailSection {
+    margin-top : 80px;
+    width:100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: antiquewhite;
+
+    height: 2000px;
+}
+
+/*상단 의원 카드 섹션*/
+
+.cardSection {
+    width:100%;
+    max-width: 635px;
+}
+
+.lawmakerCardContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.voteRageBox {
+    position : relative;
+    width:100%;
+    max-width:630px;
+    height:25px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.voteRateGraph {
+    position: absolute;
+    border-radius: 5px 0px 0px 5px;
+    top:0px;
+    left:0px;
+    width:200px;
+    height:25px;
+    background-color:aqua;
+}
+
+.voteInfo {
+    position: absolute;
+    right:-50px;
+    top:-20px;
+}
+
+/*img 에어리어 영역*/
+
+
+.imageContainer {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    width:260px;
+    height: 330px;
+}
+
+
+.lawmakerCardContainer .snsButtonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content : center;
+}
+
+.lawmakerCardContainer .snsButtonContainer .snsButton {
+    display: inline-block;
+    width:30px;
+    height: 30px;
+    margin:5px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.lawmakerCardContainer .snsButtonContainer .snsButton div {
+    width:inherit;
+    height:inherit;
+    background-color: aquamarine;
+}
+
+
+/*상단 오른쪽 섹션*/
+.rightAreaContainer {
+    max-width: 350px;
+    padding: 20px;
+    word-break: break-word;
+}
+
+.upperArea {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.upperArea div {
+    margin-bottom: 10px;
+}
+
+.upperArea .nameLine {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.upperArea .nameLine span {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.downArea {
+    font-size: 15px;
+}
+
+
+
+/*주요 약력 영역*/
+
+.summarizeSection {
+    width: 100%;
+    background-color:aqua;
+}
+
+/*오버뷰 영역*/
+
+.overviewSection {
+    width:100%;
+    background-color: blueviolet;
+}

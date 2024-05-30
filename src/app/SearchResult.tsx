@@ -50,7 +50,7 @@ const makeNullLawmaker = () : Lawmaker=> {
 
 export default function SearchResult() {
     const selectBoxComp = useRef<HTMLElement>(null);
-    const menueFixed = useFixed({searchBoxComp : selectBoxComp, tag : styles.moved, top : 80});
+    const menueFixed = useFixed({searchBoxComp : selectBoxComp, type : true, tag : styles.moved, top : 80});
     const [ lawmakerList, setLawmakerList ] = useState<Lawmaker[][]>([]);
     const [selectLawmaker, setSelectLawmaker] = useState<Lawmaker[]>([]);
     const [gender, setGender] = useState<NumOfGenderBySess[]>([]);
@@ -116,6 +116,7 @@ export default function SearchResult() {
 
     const analyzeLawmaker = (e : MouseEvent<HTMLElement>) => {
         console.log(selectLawmaker);
+        
     }
    
     const returnSelecTag = () : ReactNode[] => {
