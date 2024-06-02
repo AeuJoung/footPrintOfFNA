@@ -1,6 +1,7 @@
 "use client"
 
 import { MouseEvent, DragEvent, useRef, useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Lawmaker, NumOfGenderBySess } from "@/app/objecttype";
 import styles from "./lawmakerListComp.module.css"
 import clsx from "clsx";
@@ -13,8 +14,11 @@ interface Props {
 }
 
 export default function LawmakerListComp({lawmakerList, genderList} : Props) {
-    const listClickEvent = (e : MouseEvent<HTMLElement>) => {
-        console.log("Dddddd");
+    const router = useRouter();
+
+    const listClickEvent = (e : MouseEvent<HTMLElement>, lawmakerInfo : Lawmaker) => {
+        e.preventDefault();
+        router.push(`/detail?code=${lawmakerInfo.code}`);
     }
 
     const listDragStartEvent = (e : DragEvent<HTMLDivElement>, lawmaker : Lawmaker) => {
@@ -24,7 +28,7 @@ export default function LawmakerListComp({lawmakerList, genderList} : Props) {
 
     const returnLawmakerList = (lawmakerInfo : Lawmaker) => {
         return (
-            <div key={lawmakerInfo.code} className={clsx(styles.lawmakerList, lawmakerInfo.userCheck && styles.useChecked)} onClick={listClickEvent} draggable onDragStart={(e)=>listDragStartEvent(e, lawmakerInfo)}>
+            <div key={lawmakerInfo.code} className={clsx(styles.lawmakerList, lawmakerInfo.userCheck && styles.useChecked)} onClick={(e)=>listClickEvent(e, lawmakerInfo)} draggable onDragStart={(e)=>listDragStartEvent(e, lawmakerInfo)}>
                 <CheckIcon className={styles.checkIcon}></CheckIcon>
                 <div className={styles.list_img}>
                     <img src={lawmakerInfo.img} alt="" />

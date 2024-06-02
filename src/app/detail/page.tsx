@@ -2,13 +2,15 @@
 
 import Image from "next/image";
 import SearchBox from "../_component/SearchBox";
-
 import styles from "./page.module.css";
 import Link from "next/link";
 import clsx from "clsx";
 import { faker } from "@faker-js/faker";
 import { useEffect, useState } from "react";
 import { LawmakerDetail } from "../objecttype";
+import TwitterIcon from "/public/asset/twitter.svg";
+import FacebookIcon from "/public/asset/facebook.svg";
+import { useSearchParams } from "next/navigation";
 
 const makeFakeLawmaker = () =>{ 
     let randNum = [faker.number.int()%5+18, faker.number.int()%5+18];
@@ -39,9 +41,12 @@ const makeFakeLawmaker = () =>{
 }
 
 export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 시에는 프롭스로 유저 정보 받아서 활용 
+    const searchParams = useSearchParams();
     const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>();
 
     useEffect(()=>{
+        console.log(searchParams.get('code'));
+
         setLawmakerData(makeFakeLawmaker());
     }, []);
 
@@ -50,10 +55,10 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
         <section className={styles.lawmakerDetailSection}>
             <section className={styles.cardSection}>
                 <section className={styles.voteRateContainer}>
-                    <div>당선 투표율</div>
+                    <div className={styles.voteRateLabel}>당선 투표율</div>
                     <div className={styles.voteRageBox}>
                         <div className={styles.voteRateGraph}>
-                            <div className={styles.voteInfo}>63% <span>VS</span> 37%</div>
+                            <div className={styles.voteInfo}><span>63%</span> <span>VS</span> <span>37%</span></div>
                         </div>
                     </div>
                 </section>
@@ -63,9 +68,9 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                             <Image src={lawmakerData?.img || ''} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill style={ {objectFit : 'cover' } } alt="의원 사진"/>
                         </div>
                         <div className={styles.snsButtonContainer}>
-                            <Link href={'/'} className={clsx(styles.snsButton,styles.twitter)}><div></div></Link>
-                            <Link href={'/'} className={clsx(styles.snsButton,styles.facebookButton)}><div></div></Link>
-                            <Link href={'/'} className={clsx(styles.snsButton,styles.ownPage)}><div></div></Link>
+                            <Link href={'/'} className={clsx(styles.snsButton,styles.twitter)}><div><TwitterIcon /></div></Link>
+                            <Link href={'/'} className={clsx(styles.snsButton,styles.facebookButton)}><div><FacebookIcon /></div></Link>
+                            <Link href={'/'} className={clsx(styles.snsButton,styles.ownPage)}><div>개인 페이지</div></Link>
                         </div>
                     </article>
                     <article className={styles.rightAreaContainer}>
@@ -75,7 +80,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                             <div>{lawmakerData?.phoneNumber} / {lawmakerData?.email}</div>
                         </article>
                         <article className={styles.downArea}> 
-                            <div>{lawmakerData?.term.length}선 국회의원 / {lawmakerData?.committee.join(' / ')}</div>
+                            <div>{lawmakerData?.term.length} 선 국회의원 / {lawmakerData?.committee.join(' / ')}</div>
                             <div>{lawmakerData?.term.map((v, i)=> {
                                 return <p key={i}><span>제 {v}대</span></p>
                             })}</div>
@@ -84,10 +89,13 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                 </section>
             </section>
             <section className={styles.summarizeSection}>
-
+                <h2>주요 약력</h2>
+                <article className={styles.summarizeSectionContents}>
+                    {lawmakerData?.mainCareer}
+                </article>
             </section>
             <section className={styles.overviewSection}>
-
+                <h2>국회 활동 오버뷰</h2>
             </section>
         </section>
     </>);

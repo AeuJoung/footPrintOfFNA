@@ -70,12 +70,7 @@
     transition: .1s;
 }
 
-@media screen and (max-width:440px) {
-    .lawmakerList .list_img {
-        width:calc(170px * 0.8);
-        height:calc(210px * 0.8);
-    }
-}
+
 
 .lawmakerList .list_img img {
     height:100%;
@@ -94,7 +89,7 @@
     width:90%;
     flex-direction: row;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.2em;
     font-weight: 600;
 
     justify-content: space-around;
@@ -102,4 +97,16 @@
 .lawmakerList .list_infoWrapper .list_partySimbol {
     width:10px; height:10px; border-radius: 100%;
     background-color: red;
+}
+
+
+@media screen and (max-width:440px) {
+    .lawmakerList .list_img {
+        width:calc(170px * 0.8);
+        height:calc(210px * 0.8);
+    }
+    
+    .lawmakerList .list_infoWrapper{
+        font-size: 1em;
+    }
 }
