@@ -6,6 +6,9 @@ import { ChangeEvent, MouseEvent, RefObject, useEffect, useRef, useState } from 
 import SearchBT from "/public/asset/SearchBT.svg"
 import ArrowSVG from "/public/asset/updownArrow.svg";
 import useFixed from "@/app/_userhook/useFixed"
+import Logo from "/public/asset/logo.svg";
+import Link from "next/link";
+
 
 
 interface filterType {
@@ -109,6 +112,7 @@ export default function SearchBox({alwaysMenuFixed} : {alwaysMenuFixed : boolean
     return (
         <section className={clsx(styles.searchSectionWrapper, alwaysMenuFixed || styles.moved)} ref={searchBoxComp}>
             <section className={styles.searchSection} >
+                <Link href={'/'}><Logo className={styles.logoSVG}></Logo></Link>
                 <div className={styles.searchBoxWrapper}>
                     <input className={styles.searchBox} type="search" placeholder="의원 검색"></input>
                     <div className={styles.searchButtonWrapper}>

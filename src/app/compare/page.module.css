@@ -1,0 +1,149 @@
+.mainContainer {
+    margin-top:80px;
+    width:100%;
+    max-width: 990px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding:0 20px;
+
+}
+
+.vslabel {
+    position:absolute; 
+    z-index : -4;
+    top:13vw;
+    left:50%; 
+    transform:skewX(-10deg) translate(-50%, 0);
+    font-size : 60px; 
+    font-weight:800;
+}
+
+.cardSection {
+    padding-top : 50px;
+    width:100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lawmakerSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+    max-width:350px;
+    height:570px;
+}
+.lawmakerSection:nth-child(1) {
+    align-items: start;
+}
+.lawmakerSection:nth-child(2) {
+    align-items: end;
+}
+
+.imageContainer {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    width:240px;
+    height: 310px;
+
+    box-shadow: 1px 2px 11px rgba(0, 0, 0, .3);
+
+    margin-bottom: 20px;
+}
+
+.downArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lawmakerName {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.partyName {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.partyName::after {
+    position: absolute;
+    width:100%;
+    height:2px;
+    background-color: black;
+    content: "";
+    bottom: -5px;
+    left:0px;
+}
+.committee {
+    min-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.termInfo h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.overviewSection {
+    width:100%;
+    height: 400px;
+
+    border-radius: 20px;
+    background-color: white;
+}
+
+
+@media screen and (max-width : 620px) {
+    .vslabel {
+        top : 110px;
+    }
+
+    .lawmakerSection {
+        align-items: center !important;
+        padding:5px;
+    }
+    .imageContainer {
+        width:180px;
+        height: 232px; 
+    }
+
+    .lawmakerName {
+        font-size: 4vw;
+    }
+    .partyName {
+        font-size: 3.5vw;
+    }
+    .committee{
+        font-size: 3vw;
+    }
+
+    .termInfo h2 {
+        font-size: 25px;
+    }
+    .termInfo div {
+        font-size: 3vw;
+    }
+    .termInfo div > span {
+        display: none;
+    }
+}
+
+@media screen and (max-width : 470px) {
+
+    .imageContainer {
+        width:150px;
+        height: 192px; 
+    }
+}

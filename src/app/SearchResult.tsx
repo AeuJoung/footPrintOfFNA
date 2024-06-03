@@ -9,6 +9,7 @@ import ArrowSVG from "/public/asset/updownArrow.svg";
 import useFixed from "@/app/_userhook/useFixed";
 import LawmakerListComp from "./LawmakerListComp";
 import clsx from "clsx";
+import { useRouter } from "next/navigation";
 
 
 const makeFakeLawmaker = () =>{ 
@@ -49,6 +50,7 @@ const makeNullLawmaker = () : Lawmaker=> {
 }
 
 export default function SearchResult() {
+    const router = useRouter();
     const selectBoxComp = useRef<HTMLElement>(null);
     const menueFixed = useFixed({searchBoxComp : selectBoxComp, type : true, tag : styles.moved, top : 80});
     const [ lawmakerList, setLawmakerList ] = useState<Lawmaker[][]>([]);
@@ -116,7 +118,8 @@ export default function SearchResult() {
 
     const analyzeLawmaker = (e : MouseEvent<HTMLElement>) => {
         console.log(selectLawmaker);
-        
+
+        router.push(`/compare?code1=${selectLawmaker[0].code}&code2=${selectLawmaker[1].code}`);
     }
    
     const returnSelecTag = () : ReactNode[] => {
