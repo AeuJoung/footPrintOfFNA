@@ -1,0 +1,90 @@
+
+.graphContainer {
+    /*컴포넌트 지역 변수 */
+    --graphStick-maxHeight : 350px;
+
+    /**/
+
+    z-index:10;
+    position: relative;
+    width:100%;
+    height: 420px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+}
+
+.graphContainer::after {
+    z-index: 10;
+    position: absolute;
+    bottom: 0px;
+    width:100%;
+    height:8px;
+    border-radius: 10px;
+    content: "";
+    background-color: black;
+}
+
+.categorySection {
+    flex-grow: 1;
+    flex-basis: 0;
+    background-color: azure;
+}
+.categoryWrapper {
+    width:50px;
+    height:100px;
+    background-color: aqua;
+}
+
+.graphSection {
+    flex-grow: 2.5;
+    flex-basis: 0;
+    width:100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items:end;
+}
+
+.graphWrapper {
+    width:100%;
+    height: var(--graphStick-maxHeight);
+
+    display: flex;
+    flex-direction: row;
+    align-items:end;
+    justify-content: space-around;
+}
+
+.graphStick {
+    position: relative;
+    width:100%;
+    max-width:150px;
+    height:200px;
+    border-radius: 10px 10px 0 0;
+    background-color: blue;
+    margin : 0 20px;
+}
+
+.graphStick::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    bottom: 0px;
+    width:100%;
+    height: var(--graphStick-maxHeight);
+    background-color: #D9D9D9;
+
+    border-radius: 10px 10px 0 0;
+}
+
+.subGraphStick {
+    position: absolute;
+    bottom: 0px;
+    width:100%;
+    height:100px;
+    background-color: blueviolet;
+}

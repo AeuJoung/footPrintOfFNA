@@ -11,6 +11,7 @@ import { LawmakerDetail } from "../objecttype";
 import TwitterIcon from "/public/asset/twitter.svg";
 import FacebookIcon from "/public/asset/facebook.svg";
 import { useSearchParams } from "next/navigation";
+import GraphComp from "@/app/_graph/graphComp";
 
 const makeFakeLawmaker = () =>{ 
     let randNum = [faker.number.int()%5+18, faker.number.int()%5+18];
@@ -96,6 +97,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
             </section>
             <section className={styles.overviewSection}>
                 <h2>국회 활동 오버뷰</h2>
+                <GraphComp />
             </section>
         </section>
     </>);
