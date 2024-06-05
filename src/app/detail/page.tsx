@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import clsx from "clsx";
 import { faker } from "@faker-js/faker";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LawmakerDetail } from "../objecttype";
 import TwitterIcon from "/public/asset/twitter.svg";
 import FacebookIcon from "/public/asset/facebook.svg";
@@ -41,13 +41,14 @@ const makeFakeLawmaker = () =>{
     }
 }
 
+
 export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 시에는 프롭스로 유저 정보 받아서 활용 
     const searchParams = useSearchParams();
     const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>();
 
     useEffect(()=>{
         console.log(searchParams.get('code'));
-
+        
         setLawmakerData(makeFakeLawmaker());
     }, []);
 
@@ -97,7 +98,24 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
             </section>
             <section className={styles.overviewSection}>
                 <h2>국회 활동 오버뷰</h2>
-                <GraphComp />
+                <article className={styles.graphArea}>
+                    <h3 className={styles.graphTitle}>출석률 현황 (상임위/본회의)</h3>
+                    <GraphComp graphData={[
+                        {name : '연금개혁특별의원회', totalValue : 170, value : 68, symbol : '%', color : '#FFB5B5'}, 
+                        {name : '본회의', totalValue : 145, value : 130, symbol : '%', color : '#5A9CFF'} 
+                        ]} position="left" />
+                </article>
+                <article className={styles.graphArea}>
+                    <h3 className={styles.graphTitle}>본회의 상정률 & 가결률</h3>
+                    <GraphComp graphData={[
+                        {name : '대표발의 안건 상정률', totalValue : 100, value : 68.2, symbol : '%', color : '#FFB5B5', subGraph : {
+                            name : '대표발의 안건 가결률', value : 30, color : '#AA2B2B'
+                            }}, 
+                        {name : '공동제안 안건 상정률', totalValue : 100, value : 75.66, symbol : '%', color : '#5A9CFF', subGraph : {
+                            name : '대표발의 안건 가결률', value : 40,  color : '#1C59B6'
+                            }}, 
+                        ]} position="left" />
+                </article>
             </section>
         </section>
     </>);

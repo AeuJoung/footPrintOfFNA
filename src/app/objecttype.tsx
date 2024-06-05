@@ -43,3 +43,17 @@ export interface LawmakerDetail {
     committee : string[]
     // 소속 상임위 (=stCommit (stCommit은 배열이 아니라 단일))
 }
+
+export interface GraphType {
+    name : string;
+    totalValue : number;
+    value : number;
+    symbol : string;
+    color : string;
+    subGraph? : {
+        name? : string;
+        totalValue : number;
+        value : number;
+        color? : string;
+    }
+}

@@ -6,8 +6,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    height: 2000px;
 }
 
 .lawmakerDetailSection::before {
@@ -251,6 +249,28 @@
 
     background-color: black;
 }  
+
+.graphArea {
+    margin-top: 40px;
+    margin-bottom: 70px;
+    padding:0 20px;
+}
+
+.graphTitle {
+    position: relative;
+    margin-left:20px;
+}
+.graphTitle::before {
+    position: absolute;
+    left:-17px;
+    top:4px;
+    content: "";
+    width: 0px;
+    height: 0px;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #000000;
+    border-top: 7px solid transparent;
+}
 
 
 

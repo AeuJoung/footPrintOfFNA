@@ -118,8 +118,8 @@ export default function SearchResult() {
 
     const analyzeLawmaker = (e : MouseEvent<HTMLElement>) => {
         console.log(selectLawmaker);
-
-        router.push(`/compare?code1=${selectLawmaker[0].code}&code2=${selectLawmaker[1].code}`);
+        if (selectLawmaker[0].code!='' && selectLawmaker[1].code!='') router.push(`/compare?code1=${selectLawmaker[0].code}&code2=${selectLawmaker[1].code}`);
+        else alert('두 명 이상 선택해주세요.');
     }
    
     const returnSelecTag = () : ReactNode[] => {
@@ -157,7 +157,6 @@ export default function SearchResult() {
                 </section>
             </section>
             <LawmakerListComp lawmakerList={lawmakerList} genderList={gender} />
-
         </section>
     )
 }

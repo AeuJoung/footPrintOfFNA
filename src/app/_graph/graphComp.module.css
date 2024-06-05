@@ -1,4 +1,3 @@
-
 .graphContainer {
     /*컴포넌트 지역 변수 */
     --graphStick-maxHeight : 350px;
@@ -27,17 +26,6 @@
     background-color: black;
 }
 
-.categorySection {
-    flex-grow: 1;
-    flex-basis: 0;
-    background-color: azure;
-}
-.categoryWrapper {
-    width:50px;
-    height:100px;
-    background-color: aqua;
-}
-
 .graphSection {
     flex-grow: 2.5;
     flex-basis: 0;
@@ -62,9 +50,8 @@
 .graphStick {
     position: relative;
     width:100%;
-    max-width:150px;
+    max-width:170px;
     height:200px;
-    border-radius: 10px 10px 0 0;
     background-color: blue;
     margin : 0 20px;
 }
@@ -87,4 +74,32 @@
     width:100%;
     height:100px;
     background-color: blueviolet;
+}
+
+.totalValueTag {
+    position: absolute;
+    z-index: -1;
+    bottom: 0px;
+    text-align: center;
+    width:100%;
+    height: 380px;
+
+    font-size:18px;
+    font-weight: bold;
+}
+
+.valueTag {
+    width:100%;
+    margin-top : 5px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+    word-break: keep-all;
+
+    padding : 0 5px;
+}
+
+.valueTag span {
+    font-size: 12px;
+    padding:0 3px;
 }

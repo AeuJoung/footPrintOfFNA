@@ -1,6 +1,6 @@
 "use client"
 
-import { RefObject, useEffect } from "react";
+import {  RefObject, useEffect, useRef } from "react";
 
 interface Props {
     searchBoxComp : RefObject<HTMLElement>;
@@ -10,24 +10,25 @@ interface Props {
 }
 
 export default function useFixed({searchBoxComp, type, tag, top} : Props) {
+    const handler = useRef<EventListener | null>();
+
     useEffect(()=>{
-        let handler = null;
+        handler.current = null;
         if (type) {
-            console.log(type);
             let relativePos = Number(searchBoxComp.current?.getBoundingClientRect().top)-(top?top:0);
             let scrollPos = window.scrollY;
             let absolutePos = relativePos+scrollPos;
-            handler = () =>{
+            handler.current = () =>{
                 if (searchBoxComp.current?.classList.contains(tag)) {
                     if (scrollY<=absolutePos) searchBoxComp.current?.classList.remove(tag);
                 } else {
                     if (scrollY>absolutePos) searchBoxComp.current?.classList.add(tag);
                 }
             }
-            window.addEventListener('scroll', handler);
+            window.addEventListener('scroll', handler.current);
         }
         return ()=>{
-            if (handler) window.removeEventListener('scroll', handler);
+            if (handler.current) window.removeEventListener('scroll', handler.current);
         }
     });
 
