@@ -3,7 +3,8 @@
 import styles from '@/app/_graph/graphComp.module.css'
 import { GraphType } from '@/app/objecttype';
 import GraphCategoryComp from './graphCategoryComp';
-import { RefObject, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import clsx from 'clsx';
 
 
 /* graph타입 샘플
@@ -20,10 +21,10 @@ const graphData : GraphType[] = [
 interface Props {
     graphData : GraphType[];
     position : string; //범례 위치. (left, bottom만 구현되어있음.)
+    type? : string; //'vs' 받으면 vs모드로.
 }
 
-
-export default function GraphComp({graphData, position} : Props) {
+export default function GraphComp({graphData, position, type} : Props) {
     const stickHeight = 350;
     const [graphLegendPos, setGraphLegendPos] = useState<string>(position); //화면 폭 좁아졌을 때 그래프 범례 위치 변경
     const [animation, setAnimation] = useState<boolean>(false);
@@ -31,6 +32,13 @@ export default function GraphComp({graphData, position} : Props) {
     const widthHandler = useRef<EventListener>();
     const heightHandler = useRef<EventListener>();
 
+    const centerIdxOfGraphStick = graphData.length/2-1;
+
+    useEffect(()=>{
+        if (window.innerWidth<=810) { //너비가 810이하이면 범례 위치 일제히 bottom으로.
+            if (graphLegendPos=='left') setGraphLegendPos('bottom');
+        } 
+    }, []);
 
     useEffect(()=>{
         widthHandler.current = function() {
@@ -67,6 +75,7 @@ export default function GraphComp({graphData, position} : Props) {
         }
     });
 
+
     if (graphData) {
         return (<>
             <section className={styles.graphContainer} ref={graphContainer}>
@@ -74,13 +83,13 @@ export default function GraphComp({graphData, position} : Props) {
                 <section className={styles.graphSection}>
                     <section className={styles.graphWrapper}>
                         {graphData.map((v, i)=>{
-                            let graphStick = <div className={styles.graphStick} key={i} style={{backgroundColor : v.color, height : v.value*stickHeight/v.totalValue}}>
+                            let graphStick = <div className={clsx(styles.graphStick, type=='vs' && i==centerIdxOfGraphStick && styles.centerStick)} key={i} style={{backgroundColor : v.color, height : v.value*stickHeight/v.totalValue}}>
                                     <div className={styles.totalValueTag}>총 {v.totalValue}건</div>
                                     <div className={styles.valueTag}>{(v.value/v.totalValue*100).toFixed(2)}{v.symbol}<span>({v.value}건)</span></div>
                                 </div>;
                             
                             if (v.subGraph) {
-                                graphStick = <div className={styles.graphStick} key={i} style={{backgroundColor : v.color, height : v.value*stickHeight/v.totalValue}}>
+                                graphStick = <div className={clsx(styles.graphStick, type=='vs' && i==centerIdxOfGraphStick && styles.centerStick)} key={i} style={{backgroundColor : v.color, height : v.value*stickHeight/v.totalValue}}>
                                     <div className={styles.totalValueTag}>총 {v.totalValue}건</div>
                                     
                                     {/*메인 그래프*/}

@@ -8,11 +8,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 60px;
 }
 
 .categoryWrapper {
-    width:90%;
     background-color: rgba( 12, 43, 128, 0.1 );
     border-radius: 20px;
     padding : 10px 20px;
@@ -49,12 +47,11 @@
 }
 
 /*left*/
-.left .categoryWrapper {
+.left .categoryWrapper ul {
     flex-direction: column;
 }
 
 /*bottom*/
 .bottom .categoryWrapper {
-    flex-direction: row;
     margin-top : 30px;
 }

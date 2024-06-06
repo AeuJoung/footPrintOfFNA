@@ -19,20 +19,24 @@ export default function GraphCategoryComp({graphData, position} : Props) {
             <div className={styles.categoryWrapper}>
                 <ul className={styles.categoryWrapperUl}>
                 {graphData.map((v, i)=>{
-                    let lists = [
-                        <li className={styles.categoryList} key={[v.name, i].join()}>
-                            <div className={styles.categoryValueColor} style={{backgroundColor : v.color}}></div>
-                            <p className={styles.categoryValueName}>{v.name}</p>
-                        </li>
-                    ];
-                    if (v.subGraph) {
-                        if (v.subGraph.name) lists.push(
-                            <li className={styles.categoryList} key={[v.subGraph.name, i].join()}>
-                                <div className={styles.categoryValueColor} style={{backgroundColor : v.subGraph.color}}></div>
-                                <p className={styles.categoryValueName}>{v.subGraph.name}</p>
+                    let lists = [];
+                    if (v.name) { //네임 있는 것들만 담음.
+                        lists.push([
+                            <li className={styles.categoryList} key={[v.name, i].join()}>
+                                <div className={styles.categoryValueColor} style={{backgroundColor : v.color}}></div>
+                                <p className={styles.categoryValueName}>{v.name}</p>
                             </li>
-                        )
+                        ]);
+                        if (v.subGraph) {
+                            if (v.subGraph.name) lists.push(
+                                <li className={styles.categoryList} key={[v.subGraph.name, i].join()}>
+                                    <div className={styles.categoryValueColor} style={{backgroundColor : v.subGraph.color}}></div>
+                                    <p className={styles.categoryValueName}>{v.subGraph.name}</p>
+                                </li>
+                            )
+                        }
                     }
+
                     return lists;
                 })}
                 </ul>

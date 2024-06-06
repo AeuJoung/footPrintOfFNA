@@ -45,14 +45,13 @@ export interface LawmakerDetail {
 }
 
 export interface GraphType {
-    name : string;
+    name? : string;
     totalValue : number;
     value : number;
     symbol : string;
     color : string;
     subGraph? : {
         name? : string;
-        totalValue : number;
         value : number;
         color? : string;
     }

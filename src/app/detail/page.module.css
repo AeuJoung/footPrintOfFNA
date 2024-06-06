@@ -234,6 +234,7 @@
     display: inline-block;
     padding-left:15px;
     font-size: 20px;
+    margin-bottom: 50px;
 }
 
 .overviewSection h2::before {
@@ -251,9 +252,12 @@
 }  
 
 .graphArea {
-    margin-top: 40px;
-    margin-bottom: 70px;
+    margin-bottom: 100px;
     padding:0 20px;
+
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;;
 }
 
 .graphTitle {
@@ -277,6 +281,8 @@
 /*미디어 쿼리*/
 
 @media screen and (max-width : 635px) {
+    .imageArea { margin : 0px; }
+
     .lawmakerCardContainer {
         flex-direction: column;
     }
