@@ -12,6 +12,7 @@ import TwitterIcon from "/public/asset/twitter.svg";
 import FacebookIcon from "/public/asset/facebook.svg";
 import { useSearchParams } from "next/navigation";
 import GraphComp from "@/app/_graph/graphComp";
+import CircleGraphComp from "../_graph/circleGraphComp";
 
 const makeFakeLawmaker = () =>{ 
     let randNum = [faker.number.int()%5+18, faker.number.int()%5+18];
@@ -99,6 +100,9 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
             <section className={styles.overviewSection}>
                 <h2>국회 활동 오버뷰</h2>
                 <article className={styles.graphArea}>
+                    <CircleGraphComp />
+                </article>
+                <article className={styles.graphArea}>
                     <h3 className={styles.graphTitle}>출석률 현황 (상임위/본회의)</h3>
                     <GraphComp graphData={[
                         {name : '연금개혁특별의원회', totalValue : 170, value : 68, symbol : '%', color : '#FFB5B5'}, 
@@ -116,6 +120,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                             }}, 
                         ]} position="left" />
                 </article>
+
             </section>
         </section>
     </>);

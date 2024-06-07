@@ -118,6 +118,4 @@ export default function GraphComp({graphData, position, type} : Props) {
     } else {
         return <></>
     }
-
-
 }
