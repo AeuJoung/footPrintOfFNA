@@ -40,7 +40,7 @@ export default function CircleGraphComp() {
             if (canvas) canvas.removeEventListener('mousemove', handler);
         }
     })
-
+    
     useEffect(()=>{
         let ctx = canvusRef.current?.getContext('2d');
         if(ctx) {
