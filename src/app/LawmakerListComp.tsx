@@ -2,6 +2,7 @@
 
 import { MouseEvent, DragEvent, useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image"
 import { Lawmaker, NumOfGenderBySess } from "@/app/objecttype";
 import styles from "./lawmakerListComp.module.css"
 import clsx from "clsx";
@@ -31,7 +32,7 @@ export default function LawmakerListComp({lawmakerList, genderList} : Props) {
             <div key={lawmakerInfo.code} className={clsx(styles.lawmakerList, lawmakerInfo.userCheck && styles.useChecked)} onClick={(e)=>listClickEvent(e, lawmakerInfo)} draggable onDragStart={(e)=>listDragStartEvent(e, lawmakerInfo)}>
                 <CheckIcon className={styles.checkIcon}></CheckIcon>
                 <div className={styles.list_img}>
-                    <img src={lawmakerInfo.img} alt="" />
+                    <Image src={lawmakerInfo.img} alt=""></Image>
                 </div>
                 <div className={styles.list_infoWrapper}>
                     <div className={styles.list_partySimbol} style={{ backgroundColor : lawmakerInfo.party.color}}></div>
