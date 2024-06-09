@@ -5,12 +5,12 @@ import { useEffect } from "react";
 import Image from "next/image"
 import SearchBox from "../_component/SearchBox";
 import { faker } from "@faker-js/faker";
-import styles from "@/app/compare/page.module.css";
+import styles from "./page_compare.module.css";
 import GraphComp from "@/app/_graph/graphComp";
 
 
 export default function Page() {
-    const searchParams = useSearchParams();
+    //const searchParams = useSearchParams();
     
 
     useEffect(()=>{

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import SearchBox from "../_component/SearchBox";
-import styles from "./page.module.css";
+import styles from "./page_detail.module.css";
 import Link from "next/link";
 import clsx from "clsx";
 import { faker } from "@faker-js/faker";
@@ -44,16 +44,40 @@ const makeFakeLawmaker = () =>{
     }
 }
 
+const initData = {
+    code : faker.string.uuid().substring(0, 4),
+    name : faker.internet.userName().substring(0, 4),
+    gender : faker.person.gender(),
+    img : faker.image.avatar(),
+    party : { 
+        name : faker.company.name().substring(0, 4),
+        color : faker.color.rgb(),
+    },
+    stCommit : faker.commerce.productName().substring(0, 4),
+    session : [0,0],
+    curSession : 0,
+
+    //디테일
+    electedRegion : faker.company.name().substring(0, 4),   // 당선지역
+    englishName : faker.company.name().substring(0, 4),     // 영어이름
+    birthDate : faker.date.birthdate(),       // 출생일
+    phoneNumber : faker.phone.number(),     // 전화번호
+    email : faker.internet.email(),           // 이메일
+    term : [0,0],            // 임기  (=session)
+    mainCareer : faker.person.bio(),      // 주요약력
+    committee : [faker.commerce.productName().substring(0, 4), faker.commerce.productName().substring(0, 4)],   
+}
+
 
 export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 시에는 프롭스로 유저 정보 받아서 활용 
-    const searchParams = useSearchParams();
-    const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>();
+    //const searchParams = useSearchParams();
+    const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>(initData);
 
     useEffect(()=>{
-        console.log(searchParams.get('code'));
+        //console.log(searchParams.get('code'));
         
         setLawmakerData(makeFakeLawmaker());
-    }, [searchParams]);
+    }, []);
 
     return (<>
         <SearchBox alwaysMenuFixed={false} />

@@ -47,7 +47,7 @@ export default function LawmakerListComp({lawmakerList, genderList} : Props) {
         if (lawmakerList.length==0) return <></>;
         let returnList = [];
         for (let i=22 ; i>=18 ; i--) {
-            if (lawmakerList[i].length>0) {
+            if (lawmakerList[i] && lawmakerList[i].length>0) {
                 returnList.push(
                 <section key={i} className={styles.lawmakerList_Session}> {/* 21대 의원, 22대 의원 섹션*/}
                     <div className={styles.sessionTitle}>{i}대 국회 <span className={styles.sessionInfo}>{lawmakerList[i].length}명 (남 : {genderList[i].male}, 여 : {genderList[i].female})</span></div>
