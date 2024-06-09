@@ -1,6 +1,6 @@
 .graphContainer {
     /*컴포넌트 지역 변수 */
-    /*--graphStick-maxHeight : 350px;*/
+    --graphStick-maxHeight : 350px;
 
     /**/
 
@@ -34,17 +34,16 @@
     
     display: flex;
     flex-direction: row;
-    align-items:end;
+    align-items:flex-end;
 }
 
 .graphWrapper {
     width:100%;
-    /*height: var(--graphStick-maxHeight);*/
-    height: 350px;
+    height: var(--graphStick-maxHeight);
 
     display: flex;
     flex-direction: row;
-    align-items:end;
+    align-items:flex-end;  /* end 쓰니까 빌드 오류 발생. */
     justify-content: space-around;
 }
 
@@ -62,8 +61,7 @@
     content: "";
     bottom: 0px;
     width:100%;
-    /*height: var(--graphStick-maxHeight);*/
-    height: 350px;
+    height: var(--graphStick-maxHeight);
     background-color: #D9D9D9;
 
     border-radius: 10px 10px 0 0;
