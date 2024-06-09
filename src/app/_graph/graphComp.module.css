@@ -1,6 +1,6 @@
 .graphContainer {
     /*컴포넌트 지역 변수 */
-    --graphStick-maxHeight : 350px;
+    /*--graphStick-maxHeight : 350px;*/
 
     /**/
 
@@ -39,7 +39,8 @@
 
 .graphWrapper {
     width:100%;
-    height: var(--graphStick-maxHeight);
+    /*height: var(--graphStick-maxHeight);*/
+    height: 350px;
 
     display: flex;
     flex-direction: row;
@@ -61,7 +62,8 @@
     content: "";
     bottom: 0px;
     width:100%;
-    height: var(--graphStick-maxHeight);
+    /*height: var(--graphStick-maxHeight);*/
+    height: 350px;
     background-color: #D9D9D9;
 
     border-radius: 10px 10px 0 0;
