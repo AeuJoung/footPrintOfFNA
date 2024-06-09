@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import styles from "./searchBox.module.css";
 import { ChangeEvent, MouseEvent, RefObject, useEffect, useRef, useState } from "react";
-import SearchBT from "/public/asset/SearchBT.svg"
+import SearchBT from "/public/asset/searchBT.svg"
 import ArrowSVG from "/public/asset/updownArrow.svg";
 import useFixed from "@/app/_userhook/useFixed"
 import Logo from "/public/asset/logo.svg";
