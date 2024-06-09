@@ -14,6 +14,8 @@ import { useSearchParams } from "next/navigation";
 import GraphComp from "@/app/_graph/graphComp";
 import CircleGraphComp from "../_graph/circleGraphComp";
 
+
+
 const makeFakeLawmaker = () =>{ 
     let randNum = [faker.number.int()%5+18, faker.number.int()%5+18];
     return {
@@ -51,7 +53,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
         console.log(searchParams.get('code'));
         
         setLawmakerData(makeFakeLawmaker());
-    }, []);
+    }, [searchParams]);
 
     return (<>
         <SearchBox alwaysMenuFixed={false} />

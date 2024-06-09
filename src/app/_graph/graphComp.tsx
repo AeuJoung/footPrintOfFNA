@@ -38,7 +38,7 @@ export default function GraphComp({graphData, position, type} : Props) {
         if (window.innerWidth<=810) { //너비가 810이하이면 범례 위치 일제히 bottom으로.
             if (graphLegendPos=='left') setGraphLegendPos('bottom');
         } 
-    }, []);
+    }, [graphLegendPos]);
 
     useEffect(()=>{
         widthHandler.current = function() {
