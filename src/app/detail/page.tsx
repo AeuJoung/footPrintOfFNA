@@ -63,7 +63,7 @@ const initData = {
     birthDate : faker.date.birthdate(),       // 출생일
     phoneNumber : faker.phone.number(),     // 전화번호
     email : faker.internet.email(),           // 이메일
-    term : [0,0],            // 임기  (=session)
+    term : [0],            // 임기  (=session)
     mainCareer : faker.person.bio(),      // 주요약력
     committee : [faker.commerce.productName().substring(0, 4), faker.commerce.productName().substring(0, 4)],   
 }
@@ -71,7 +71,7 @@ const initData = {
 
 export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 시에는 프롭스로 유저 정보 받아서 활용 
     //const searchParams = useSearchParams();
-    const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>(initData);
+    const [lawmakerData, setLawmakerData] = useState<LawmakerDetail>();
 
     useEffect(()=>{
         //console.log(searchParams.get('code'));
@@ -94,7 +94,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                 <section className={styles.lawmakerCardContainer}>
                     <article className={styles.imageArea}>
                         <div className={styles.imageContainer}>
-                            <Image src={lawmakerData?.img || ''} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill style={ {objectFit : 'cover' } } alt="의원 사진"/>
+                            <Image src={lawmakerData?.img || '/asset/defaultImg.png'} priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill style={ {objectFit : 'cover' } } alt="의원 사진"/>
                         </div>
                         <div className={styles.snsButtonContainer}>
                             <Link href={'/'} className={clsx(styles.snsButton,styles.twitter)}><div><TwitterIcon /></div></Link>
@@ -126,9 +126,6 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
             <section className={styles.overviewSection}>
                 <h2>국회 활동 오버뷰</h2>
                 <article className={styles.graphArea}>
-                    <CircleGraphComp />
-                </article>
-                <article className={styles.graphArea}>
                     <h3 className={styles.graphTitle}>출석률 현황 (상임위/본회의)</h3>
                     <GraphComp graphData={[
                         {name : '연금개혁특별의원회', totalValue : 170, value : 68, symbol : '%', color : '#FFB5B5'}, 
@@ -146,7 +143,9 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                             }}, 
                         ]} position="left" />
                 </article>
-
+                <article className={styles.graphArea}>
+                    <CircleGraphComp />
+                </article>
             </section>
         </section>
     </>);

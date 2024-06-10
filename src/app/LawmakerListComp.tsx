@@ -32,7 +32,7 @@ export default function LawmakerListComp({lawmakerList, genderList} : Props) {
             <div key={lawmakerInfo.code} className={clsx(styles.lawmakerList, lawmakerInfo.userCheck && styles.useChecked)} onClick={(e)=>listClickEvent(e, lawmakerInfo)} draggable onDragStart={(e)=>listDragStartEvent(e, lawmakerInfo)}>
                 <CheckIcon className={styles.checkIcon}></CheckIcon>
                 <div className={styles.list_img}>
-                    <Image src={lawmakerInfo.img} alt=""></Image>
+                    <Image src={lawmakerInfo.img} alt="" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" fill style={ {objectFit : 'cover', inset: 'none' }}></Image>
                 </div>
                 <div className={styles.list_infoWrapper}>
                     <div className={styles.list_partySimbol} style={{ backgroundColor : lawmakerInfo.party.color}}></div>

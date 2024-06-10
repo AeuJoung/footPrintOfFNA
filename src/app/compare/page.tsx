@@ -88,6 +88,7 @@ export default function Page() {
                 </article>
                 <article className={styles.graphArea}>
                     <h3 className={styles.graphTitle}>안건<br />상정률/가결률</h3>
+                    
                     <GraphComp graphData={[
                         {name : '대표발의 안건 상정률', totalValue : 100, value : 68.2, symbol : '%', color : '#FFB5B5', 
                             subGraph : {

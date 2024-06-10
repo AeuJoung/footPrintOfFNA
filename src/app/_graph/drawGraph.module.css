@@ -1,0 +1,37 @@
+.donut {
+    display: block;
+    margin: auto;
+  }
+  
+  .donutHole {
+    fill: #fff;
+  }
+  
+  .donutRing {
+    fill: transparent;
+    stroke: #d2d3d4;
+    stroke-width: 3;
+  }
+  
+  .donutSegment {
+    fill: transparent;
+    stroke-linecap: round;
+    transition: transform 0.5s ease; /* 애니메이션 효과 */
+    transform-origin: 21px 21px;
+}
+  
+  .donutSegment:hover {
+    transform: scale(1.1); /* 마우스 오버 시 확대 효과 */
+  }
+  
+  .blueSegment {
+    stroke: #00a9ce;
+  }
+  
+  .yellowSegment {
+    stroke: #ffb700;
+  }
+  
+  .redSegment {
+    stroke: #ff5000;
+  }

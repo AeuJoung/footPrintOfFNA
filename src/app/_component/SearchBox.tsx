@@ -33,8 +33,6 @@ export default function SearchBox({alwaysMenuFixed} : {alwaysMenuFixed : boolean
     const searchBoxComp = useRef<HTMLElement>(null);
     const menueFixed = useFixed({searchBoxComp, type : alwaysMenuFixed , tag : styles.moved});
 
-    console.log(alwaysMenuFixed);
-
     const filterData = {
         filterList_session : {
             name : '회기',

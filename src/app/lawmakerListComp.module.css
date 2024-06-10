@@ -74,10 +74,6 @@
 
 
 .lawmakerList .list_img img {
-    height:100%;
-    position: relative;
-    left:50%;
-    transform: translate(-50%, 0);
     filter: grayscale();
 }
 .lawmakerList:hover .list_img img {
