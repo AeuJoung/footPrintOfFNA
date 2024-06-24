@@ -144,7 +144,7 @@ export default function Detail(/*{lawmakerData} : Lawmaker*/) { //실제 사용 
                         ]} position="left" />
                 </article>
                 <article className={styles.graphArea}>
-                    <CircleGraphComp />
+                    <CircleGraphComp />    
                 </article>
             </section>
         </section>
