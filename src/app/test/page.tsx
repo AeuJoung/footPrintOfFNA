@@ -1,3 +1,4 @@
+
 /*
 async function getData() {
     const res = await fetch('https://open.assembly.go.kr/portal/openapi/nqbeopthavwwfbekw?KEY=79026accaa3b46d4ae9ec75228ec357d&Type=json', {
