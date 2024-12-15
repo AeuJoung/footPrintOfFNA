@@ -1,6 +1,6 @@
 국회 정보를 표시하는 프로젝트입니다.
 
-*[국회 오픈API](https://open.assembly.go.kr/portal/openapi/main.do) 사용 
+*[국회 오픈API](https://open.assembly.go.kr/portal/openapi/main.do) 사용 예정
 
 
 ### 구현 목표
